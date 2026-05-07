@@ -1,0 +1,46 @@
+# to use this file, copy from everything from below to your new file, uncomment, and alter the values.
+---
+description: "Use when: ..."   # REQUIRED. Trigger phrases for agent picker and subagent discovery.
+# name: "Agent Name"                       # Optional. Defaults to filename.
+# tools: [read, edit, search, execute]     # Optional. Minimal set needed. Omit = defaults.
+                                           #   Aliases: execute, read, edit, search, agent, web, todo
+                                           #   MCP:     <server>/*
+                                           #   Special: [] = no tools
+# model: "Claude Sonnet 4"                 # Optional. Supports array for fallback:
+                                           #   ['Claude Sonnet 4.5 (copilot)', 'GPT-5 (copilot)']
+# argument-hint: "Describe the task..."    # Optional. Input guidance shown in agent picker.
+# agents: [agent1, agent2]                 # Optional. Restrict allowed subagents by name.
+                                           #   Omit = all allowed, [] = none allowed.
+# user-invocable: true                     # Optional. false = subagent only, hidden from picker.
+# disable-model-invocation: false          # Optional. true = block other agents from invoking this one.
+# handoffs: []                             # Optional. Transitions to other agents.
+# hooks:                                   # Optional. Lifecycle hooks scoped to this agent.
+#   PreToolUse:
+#     - type: command
+#       command: "./scripts/validate.sh"
+#       # timeout: 10                      # Optional. Seconds before hook is killed.
+#       # cwd: "."                         # Optional. Working directory.
+#       # env:                             # Optional. Environment variables.
+#       #   MY_VAR: "value"
+#       # windows: "scripts\\validate.ps1" # Optional. Platform override.
+#   PostToolUse:
+#     - type: command
+#       command: "./scripts/format.sh"
+#   # Other supported events:
+#   # SessionStart, UserPromptSubmit, PreCompact, SubagentStart, SubagentStop, Stop
+---
+
+You are a specialist at {specific task}. Your job is to {clear purpose}.
+
+## Constraints
+- DO NOT {thing this agent should never do}
+- DO NOT {another restriction}
+- ONLY {the one thing this agent does}
+
+## Approach
+1. {Step one}
+2. {Step two}
+3. {Step three}
+
+## Output Format
+{Exactly what this agent should return}
